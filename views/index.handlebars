@@ -1,6 +1,23 @@
-<h1>Eat-Da-Burger!</h1>
 
-<h4>Add a Burger, Then Eat it!</h4>
+<div class="container">
+  <div style="text-align: center;" class="Header">
+<h1>EAT-DA-BURGER</h1>
+
+<h4>Add A Burger<i class="fas fa-utensils fa-2x"></i>Then Devour It!</h4>
+</div>
+
+<div style="text-align: right;" class="container">
+<h4>Add a Burger</h4>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  <button type="submit">Add Burger</button>
+</form>
+</div>
 
 
 <h2>Our Specials:</h2>
@@ -13,7 +30,8 @@
 {{/unless}}
 {{/each}}
 
-<h2>Yummm...So Delicious!</h2>
+<div style="text-align: right;" class="eaten">
+<h4>Yummm...So Delicious!</h4>
 {{#each burgers}}
 {{#if devoured}}
 <ul>
@@ -21,24 +39,9 @@
 </ul>
 {{/if}}
 {{/each}}
+</div>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  {{!-- <div class="form-group">
-    <label for="slee">Devoured?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Eaten!<br>
-    <input type="radio" name="sleepy" value="0"> Eat
-  </div> --}}
-
-  <button type="submit">Add Burger</button>
-</form>
-
+</div>
 
 <script>
   $("#eat-me").on("click", function (event) {
