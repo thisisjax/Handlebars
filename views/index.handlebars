@@ -1,0 +1,64 @@
+<h1>Eat-Da-Burger!</h1>
+
+<h4>Add a Burger, Then Eat it!</h4>
+
+
+<h2>Our Specials:</h2>
+ {{#each burgers}}
+  {{#unless devoured}}
+<ul>
+  {{burger_name}}
+  <i id="eat-me" class="fas fa-circle fa-3x" data-id="{{this.id}}">Eat Me!</i>
+</ul>
+{{/unless}}
+{{/each}}
+
+<h2>Yummm...So Delicious!</h2>
+{{#each burgers}}
+{{#if devoured}}
+<ul>
+    {{burger_name}}
+</ul>
+{{/if}}
+{{/each}}
+
+<h2>Add a Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="ca">Burger Name:</label>
+    <input type="text" id="ca" name="name">
+  </div>
+
+  {{!-- <div class="form-group">
+    <label for="slee">Devoured?</label><br>
+    <input type="radio" name="sleepy" value="1" checked> Eaten!<br>
+    <input type="radio" name="sleepy" value="0"> Eat
+  </div> --}}
+
+  <button type="submit">Add Burger</button>
+</form>
+
+
+<script>
+  $("#eat-me").on("click", function (event) {
+    event.preventDefault();
+    var id = $(this).data("id");
+    var burger = {
+      id: $(this).data("id"),
+      devoured: true
+    }
+
+    //Send the POST request
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: burger
+    }).then(
+      function() {
+        console.log("Eaten!")
+        //Reaload to Updated page
+        location.assign("/");
+      }
+    );
+  });
+</script>
