@@ -3,12 +3,12 @@
   <div style="text-align: center;" class="Header">
 <h1>EAT-DA-BURGER</h1>
 
-<h4>Add A Burger<i class="fas fa-utensils fa-2x"></i>Then Devour It!</h4>
+<h3>Add A Burger 	&nbsp |	&nbsp Then Devour It!</h3>
 </div>
 
-<div style="text-align: right;" class="container">
+<div style="text-align: right;" >
 <h4>Add a Burger</h4>
-<form class="create-form">
+<form class="create-form" action="/api/burgers" method="POST">
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
@@ -19,29 +19,39 @@
 </form>
 </div>
 
+<div class="row">
 
-<h2>Our Specials:</h2>
+<div  class="card col-6 text-white bg-dark mb-3" style="max-width: 23rem;">
+  <div class="card-header"><h2>Our Specials:</h2></div>
+  <div class="card-body">
+
  {{#each burgers}}
   {{#unless devoured}}
 <ul>
   {{burger_name}}
-  <i id="eat-me" class="fas fa-circle fa-3x" data-id="{{this.id}}">Eat Me!</i>
+  <button id="eat-me" type="button" class="btn btn-success" data-id="{{this.id}}">Eat Me!</button>
 </ul>
 {{/unless}}
 {{/each}}
+  </div>
+</div>
 
-<div style="text-align: right;" class="eaten">
-<h4>Yummm...So Delicious!</h4>
-{{#each burgers}}
+
+<div id="eaten" class="card col-6 border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header"><h5>Yummm...So Delicious!</h5></div>
+  <div class="card-body text-success">
+   {{#each burgers}}
 {{#if devoured}}
 <ul>
     {{burger_name}}
 </ul>
 {{/if}}
 {{/each}}
+  </div>
+</div>
 </div>
 
-</div>
+
 
 <script>
   $("#eat-me").on("click", function (event) {

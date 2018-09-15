@@ -7,12 +7,37 @@ body {
 }
 h1 {
   font-family: 'Permanent Marker', cursive;
+  color: rgb(36, 179, 36);
+  text-shadow: 1px 1px 2px grey;
+}
+h2 {
+  font-family: 'Permanent Marker', cursive;
+}
+h3 {
+  font-family: 'Questrial', sans-serif;
 
 }
 h4 {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Questrial', sans-serif;
 }
-  
+h5 {
+  font-family: 'Nothing You Could Do', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 1px lightgray;
+}
+label {
+  font-family: 'Questrial', sans-serif;
+
+}
 ul {
-  font-family: 'Permanent Marker', cursive;
+  font-family: 'Questrial', sans-serif;
 }
+#eaten {
+  margin-left: 455px;
+  margin-top: 220px;
+}
+.card-body {
+  text-align: center;
+}
+
+
